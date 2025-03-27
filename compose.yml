@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: vite-container
+    ports:
+      - 5173:5173
+    volumes:
+      - ./app/:/var/www/html/app
+    # ホストマシンの(./app)をコンテナ内のディレクトリ（/var/www/html/app） にマウント
+    environment:
+      - WATCHPACK_POLLING=true #ホットリロードの設定
+    tty: true #コンテナを起動したままにする
+    stdin_open: true #コンテナを起動したままにする
