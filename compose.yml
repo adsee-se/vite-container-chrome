@@ -10,6 +10,7 @@ services:
       - ./app/:/var/www/html/app
     # ホストマシンの(./app)をコンテナ内のディレクトリ（/var/www/html/app） にマウント
     environment:
+      - CHOKIDAR_USEPOLLING=true
       - WATCHPACK_POLLING=true #ホットリロードの設定
     tty: true #コンテナを起動したままにする
     stdin_open: true #コンテナを起動したままにする
